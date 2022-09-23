@@ -1,4 +1,4 @@
-package com.mitocode.dto.exceptions;
+package com.mitocode.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

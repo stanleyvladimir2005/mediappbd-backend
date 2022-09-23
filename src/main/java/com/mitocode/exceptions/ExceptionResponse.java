@@ -1,4 +1,4 @@
-package com.mitocode.dto.exceptions;
+package com.mitocode.exceptions;
 
 import java.util.Date;
 

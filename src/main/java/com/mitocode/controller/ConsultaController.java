@@ -35,7 +35,7 @@ import com.mitocode.dto.ConsultaDTO;
 import com.mitocode.dto.ConsultaListaExamenDTO;
 import com.mitocode.dto.ConsultaResumenDTO;
 import com.mitocode.dto.FiltroConsultaDTO;
-import com.mitocode.dto.exceptions.ModelNotFoundException;
+import com.mitocode.exceptions.ModelNotFoundException;
 import com.mitocode.model.Archivo;
 import com.mitocode.model.Consulta;
 import com.mitocode.service.IArchivoService;
