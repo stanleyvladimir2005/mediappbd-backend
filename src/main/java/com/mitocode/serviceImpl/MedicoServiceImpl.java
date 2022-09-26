@@ -20,10 +20,4 @@ public class MedicoServiceImpl extends CRUDImpl<Medico, Integer>implements IMedi
 	protected IGenericRepo<Medico, Integer> getRepo() {
 		return repo;
 	}
-	
-	@Override
-	public Medico listarPorId(int idMedico) {
-		Optional<Medico> opt = repo.findById(idMedico);
-		return opt.orElseGet(Medico::new);
-	}
 }

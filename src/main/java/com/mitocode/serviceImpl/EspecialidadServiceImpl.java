@@ -18,10 +18,4 @@ public class EspecialidadServiceImpl extends CRUDImpl<Especialidad,Integer> impl
 	protected IGenericRepo<Especialidad, Integer> getRepo() {
 		return repo;
 	}
-	
-	@Override
-	public Especialidad listarPorId(int idEspecialidad) {
-		Optional<Especialidad> opt = repo.findById(idEspecialidad);
-		return opt.orElseGet(Especialidad::new);
-	}
 }

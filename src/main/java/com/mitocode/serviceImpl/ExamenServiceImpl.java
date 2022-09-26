@@ -18,10 +18,4 @@ public class ExamenServiceImpl extends CRUDImpl<Examen, Integer> implements IExa
 	protected IGenericRepo<Examen, Integer> getRepo() {
 		return repo;
 	}
-	
-	@Override
-	public Examen listarPorId(int idExamen) {
-		Optional<Examen> opt = repo.findById(idExamen);
-		return opt.orElseGet(Examen::new);
-	}
 }

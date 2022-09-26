@@ -25,28 +25,28 @@ public class Paciente {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idPaciente;
 	
-	@Size(min = 3, message = "Nombres debe tener minimo 3 caracteres")
+	@Size(min = 3, message = "{firs_name.size}")
 	@Column(name = "nombres", nullable = true, length = 70)
 	private String nombres;
 
-	@Size(min = 3, message = "Apellidos debe tener minimo 3 caracteres")
+	@Size(min = 3, message = "{last_name.size}")
 	@Column(name = "apellidos", nullable = true, length = 70)
 	private String apellidos;
 
-	@Size(min = 9, max = 9, message = "DNI debe tener 9 caracteres")
+	@Size(min = 9, max = 9, message = "{dui.size}")
 	@Column(name = "dui", nullable = false, length = 9)
 	private String dui;
 
-	@Size(min = 3, max = 150, message = "Direccion debe tener minimo 3 caracteres")
+	@Size(min = 3, max = 150, message = "{direccion.size}")
 	@Column(name = "direccion", length = 150)
 	private String direccion;
 
-	@Size(min = 8, max = 8, message = "Telefono debe tener 9 caracteres")
+	@Size(min = 8, max = 8, message = "{telefono.size}")
 	@Column(name = "telefono", length = 8)
 	private String telefono;
 	
 	@Email
-	@Size(message = "Email debe hasta 150 caracteres en formato xxxxx@xxxxx.com")
+	@Size(message = "{email.size}")
 	@Column(name = "email", length = 150)
 	private String email;
 	

@@ -14,7 +14,7 @@ public interface ICRUD<T, ID> {
 	//@PreAuthorize("@restAuthServiceImpl.hasAccess('listar')")
 	List<T> listar();
 	
-	T listarPorId(int id);
+	T listarPorId(ID id);
 
 	void eliminar(ID id);
 	

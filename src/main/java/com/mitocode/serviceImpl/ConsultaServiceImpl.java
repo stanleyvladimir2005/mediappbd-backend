@@ -39,12 +39,6 @@ public class ConsultaServiceImpl extends CRUDImpl<Consulta,Integer>  implements 
 	protected IGenericRepo<Consulta, Integer> getRepo() {
 		return repo;
 	}
-		
-	@Override
-	public Consulta listarPorId(int idConsulta) {
-		Optional<Consulta> opt = repo.findById(idConsulta);
-		return opt.orElseGet(Consulta::new);
-	}
 
 	@Override
 	@Transactional
@@ -102,5 +96,4 @@ public class ConsultaServiceImpl extends CRUDImpl<Consulta,Integer>  implements 
 		}
 		return data;
 	};
-	
 }

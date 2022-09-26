@@ -17,11 +17,5 @@ public class PacienteServiceImpl extends CRUDImpl<Paciente, Integer> implements 
 	@Override
 	protected IGenericRepo<Paciente, Integer> getRepo() {
 		return repo;
-	}	
-	
-	@Override
-	public Paciente listarPorId(int idPaciente) {
-		Optional<Paciente> opt = repo.findById(idPaciente);
-		return opt.orElseGet(Paciente::new);  //opt.isPresent() ? opt.get() : new Paciente();
 	}
 }

@@ -1,7 +1,9 @@
 package com.mitocode.serviceImpl;
 
 import java.util.List;
+import java.util.Optional;
 
+import com.mitocode.model.Paciente;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -23,10 +25,12 @@ public abstract class CRUDImpl<T,ID> implements ICRUD<T, ID> {
 	public List<T> listar(){
 		return getRepo().findAll();
 	}
-	
-	public void eliminar(ID id) {
-	    getRepo().deleteById(id);	
+
+	public T listarPorId(ID id) {
+		return getRepo().findById(id).orElse(null);
 	}
+	
+	public void eliminar(ID id) { getRepo().deleteById(id);	}
 	
 	public Page<T> listarPageable(Pageable pageable){
 		return getRepo().findAll(pageable);
