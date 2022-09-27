@@ -25,11 +25,11 @@ public class Examen {
 	private Integer idExamen;
 	
 	@Column(name="nombre", nullable= false, length=50)
-	@Size(min=3, message="El nombre del examen debe contener 3-50 caracteres")
+	@Size(min=3, message="{examen_name.size}")
 	private String nombre;
 	
 	@Column(name="descripcion", nullable= false, length=150)
-	@Size(min=3, message="El nombre del examen debe contener 3-150 caracteres")
+	@Size(min=3, message="{examen_descripcion.size}")
 	private String descripcion;
 	
 	@Column(name = "estado")

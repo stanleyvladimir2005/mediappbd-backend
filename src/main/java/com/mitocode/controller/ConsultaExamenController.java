@@ -21,8 +21,8 @@ public class ConsultaExamenController {
 	private IConsultaExamenService service;
 	
 	@GetMapping(value = "/{idConsulta}")
-	public ResponseEntity<List<ConsultaExamen>> listar(@PathVariable("idConsulta") Integer idconsulta) {
-		List<ConsultaExamen> consultasexamen = service.listarExamenesPorConsulta(idconsulta);
-		return new ResponseEntity<>(consultasexamen, HttpStatus.OK);
+	public ResponseEntity<List<ConsultaExamen>> listar(@PathVariable("idConsulta") Integer idConsulta) {
+		List<ConsultaExamen> consultaExamen = service.listarExamenesPorConsulta(idConsulta);
+		return new ResponseEntity<>(consultaExamen, HttpStatus.OK);
 	}
 }

@@ -9,5 +9,5 @@ import com.mitocode.model.Rol;
 @Repository
 public interface IRolRepo extends IGenericRepo<Rol, Integer> {
 	
-	public Optional<Rol> findByNombre(String nombre);
+	public Optional<Rol> findByName(String name);
 }

@@ -1,7 +1,7 @@
 package com.mitocode.model;
 
 import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -33,10 +33,10 @@ public class Usuario {
 	private String password;
 
 	@Column(name = "estado", nullable = false)
-	private boolean estado;
+	private boolean enabled;
 
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(name = "usuario_rol", joinColumns = @JoinColumn(name = "id_usuario", referencedColumnName = "idUsuario"),
 			inverseJoinColumns = @JoinColumn(name = "id_rol", referencedColumnName = "idRol"))
-	private Set<Rol> roles = new HashSet<>();
+	private List<Rol> roles;
 }

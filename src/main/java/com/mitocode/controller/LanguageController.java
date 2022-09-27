@@ -30,7 +30,6 @@ public class LanguageController {
     public ResponseEntity<Void> changeLocale(@PathVariable("loc") String loc) {
         Locale userLocale = switch (loc) {
             case "en" -> Locale.ENGLISH;
-            case "fr" -> Locale.FRENCH;
             default -> Locale.ROOT;
         };
 

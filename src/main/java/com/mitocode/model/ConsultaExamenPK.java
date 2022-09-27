@@ -1,5 +1,6 @@
 package com.mitocode.model;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import javax.persistence.Embeddable;
@@ -12,6 +13,7 @@ import lombok.Data;
 @Embeddable
 public class ConsultaExamenPK implements Serializable{
 
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	@ManyToOne

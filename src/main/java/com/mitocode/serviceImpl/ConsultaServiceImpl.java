@@ -81,7 +81,7 @@ public class ConsultaServiceImpl extends CRUDImpl<Consulta,Integer>  implements 
 	}
 
 	@Override
-	public byte[] generarReporte() {
+	public byte[] generarReporte()  throws  Exception{
 		byte[] data = null;
 		
 		//HashMap<String, String> params = new HashMap<String, String>();

@@ -149,25 +149,26 @@ public class ConsultaController {
 	}
 	
 	@GetMapping(value = "/generarReporte", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
-	public ResponseEntity<byte[]> generarReporte(){
+	public ResponseEntity<byte[]> generarReporte() throws Exception {
 		byte[] data = service.generarReporte();
 		return new ResponseEntity<>(data, HttpStatus.OK);
 	}
 	
 	@PostMapping(value = "/guardarArchivo", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
-	public ResponseEntity<Integer> guardarArchivo(@RequestParam("file") MultipartFile file) throws IOException{
-		int rpta;
+	public ResponseEntity<Void> guardarArchivo(@RequestParam("file") MultipartFile file) throws IOException{
+
 		Archivo ar = new Archivo();
 		ar.setFiletype(file.getContentType());
 		ar.setFilename(file.getName());
 		ar.setValue(file.getBytes());
-		rpta = serviceArchivo.guardar(ar);
-		return new ResponseEntity<>(rpta, HttpStatus.OK);
+
+		serviceArchivo.registrar(ar);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
 	@GetMapping(value = "/leerArchivo/{idArchivo}", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
-	public ResponseEntity<byte[]> leerArchivo(@PathVariable("idArchivo") Integer idArchivo) {
-		byte[] arr = serviceArchivo.leerArchivo(idArchivo);
+	public ResponseEntity<byte[]> leerArchivo(@PathVariable("idArchivo") Integer idArchivo) throws Exception {
+		byte[] arr = serviceArchivo.listarPorId(idArchivo).getValue();
 		return new ResponseEntity<>(arr, HttpStatus.OK);
 	}
 }

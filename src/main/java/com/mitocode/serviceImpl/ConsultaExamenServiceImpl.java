@@ -16,7 +16,7 @@ public class ConsultaExamenServiceImpl implements IConsultaExamenService{
 	private IConsultaExamenRepo repo;
 	
 	@Override
-	public List<ConsultaExamen> listarExamenesPorConsulta(Integer idconsulta) {
-		return repo.listarExamenesPorConsulta(idconsulta);
+	public List<ConsultaExamen> listarExamenesPorConsulta(Integer idConsulta) {
+		return repo.listarExamenesPorConsulta(idConsulta);
 	}
 }

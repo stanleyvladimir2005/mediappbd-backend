@@ -25,7 +25,7 @@ public class Especialidad {
 	private Integer idEspecialidad;
 	
 	@Column(name = "nombre", nullable = false, length = 50)
-	@Size(min=3, message ="El nombre de la especialidad debe contener 3-50 caracteres")
+	@Size(min=3, message ="{especialidad_name.size}")
 	private String nombre;
 	
 	@Column(name = "estado")

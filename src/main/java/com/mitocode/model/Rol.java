@@ -19,9 +19,10 @@ public class Rol {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idRol;
 
-	@Column(name = "nombre", nullable = true, length = 60)
+	@Column(nullable = true, length = 50)
 	@Size(min = 3, message = "Apellidos debe tener minimo 3 caracteres")
-	private String nombre;
-}
+	private String name;
 
-//$2a$10$gFNHv9w3dLtaug1QTZFyr.G09zRdfjAWO7L.kXylpi7wqdIsTpH4S
+	@Column(nullable = false, length = 150)
+	private String description;
+}

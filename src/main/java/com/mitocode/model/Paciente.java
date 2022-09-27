@@ -25,7 +25,7 @@ public class Paciente {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idPaciente;
 	
-	@Size(min = 3, message = "{firs_name.size}")
+	@Size(min = 3, message = "{first_name.size}")
 	@Column(name = "nombres", nullable = true, length = 70)
 	private String nombres;
 

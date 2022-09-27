@@ -18,5 +18,5 @@ public interface IConsultaExamenRepo extends IGenericRepo<ConsultaExamen, Intege
 	Integer registrar(@Param("idConsulta") Integer idConsulta,@Param("idExamen") Integer idExamen);
 	
 	@Query("from ConsultaExamen ce where ce.consulta.idConsulta = :idConsulta")
-	List<ConsultaExamen> listarExamenesPorConsulta(@Param("idConsulta") Integer idconsulta);
+	List<ConsultaExamen> listarExamenesPorConsulta(@Param("idConsulta") Integer idConsulta);
 }
