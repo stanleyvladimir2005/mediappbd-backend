@@ -21,13 +21,11 @@ import org.springframework.stereotype.Component;
 public class CORS implements Filter {
 
 	@Override
-	public void init(FilterConfig filterConfig) throws ServletException {
-		// TODO Auto-generated method stub	
+	public void init(FilterConfig filterConfig) {
 	}
 
 	@Override
-	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
-			throws IOException, ServletException {
+	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
 		HttpServletResponse response = (HttpServletResponse) res;
 		HttpServletRequest request = (HttpServletRequest) req;
 
@@ -36,11 +34,10 @@ public class CORS implements Filter {
 		response.setHeader("Access-Control-Max-Age", "3600");
 		response.setHeader("Access-Control-Allow-Headers", "x-requested-with, authorization, Content-Type, Authorization, credential, X-XSRF-TOKEN");
 
-		if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
+		if ("OPTIONS".equalsIgnoreCase(request.getMethod()))
 			response.setStatus(HttpServletResponse.SC_OK);
-		} else {
+		else
 			chain.doFilter(req, res);
-		}
 	}
 	
 	@Override

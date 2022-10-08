@@ -2,11 +2,8 @@ package com.mitocode.controller;
 
 import java.net.URI;
 import java.util.List;
-
 import javax.validation.Valid;
-
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,7 +13,6 @@ import org.springframework.hateoas.Link;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -38,7 +34,6 @@ public class MedicoController {
 	@Autowired
 	private IMedicoService service;
 
-	//@PreAuthorize("@authServiceImpl.hasAccess('listar')")
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Medico>> listar() {
 		List<Medico> Medicos = service.listar();

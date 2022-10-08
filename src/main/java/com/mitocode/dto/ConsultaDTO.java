@@ -1,11 +1,10 @@
 package com.mitocode.dto;
 
 import org.springframework.hateoas.EntityModel;
-
 import com.mitocode.model.Medico;
 import com.mitocode.model.Paciente;
 
-//Clase auxiliar para crear el HATEOAS nivel 3 a la consulta 
+//Clase auxiliar para crear el HATEOAS nivel 3 a la consulta
 public class ConsultaDTO extends EntityModel<Object> {
 	private Integer idConsulta;
 	private Medico medico;

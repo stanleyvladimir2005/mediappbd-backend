@@ -4,12 +4,9 @@ import java.io.IOException;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.validation.Valid;
-
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -30,7 +27,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
 import com.mitocode.dto.ConsultaDTO;
 import com.mitocode.dto.ConsultaListaExamenDTO;
 import com.mitocode.dto.ConsultaResumenDTO;
@@ -167,7 +163,7 @@ public class ConsultaController {
 	}
 	
 	@GetMapping(value = "/leerArchivo/{idArchivo}", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
-	public ResponseEntity<byte[]> leerArchivo(@PathVariable("idArchivo") Integer idArchivo) throws Exception {
+	public ResponseEntity<byte[]> leerArchivo(@PathVariable("idArchivo") Integer idArchivo) {
 		byte[] arr = serviceArchivo.listarPorId(idArchivo).getValue();
 		return new ResponseEntity<>(arr, HttpStatus.OK);
 	}

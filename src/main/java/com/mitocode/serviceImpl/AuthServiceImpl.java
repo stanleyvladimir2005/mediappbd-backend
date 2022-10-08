@@ -18,7 +18,6 @@ public class AuthServiceImpl {
         };
 
         String metodoRoles[] = methodRole.split(",");
-
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
         for (GrantedAuthority gra : auth.getAuthorities()) {

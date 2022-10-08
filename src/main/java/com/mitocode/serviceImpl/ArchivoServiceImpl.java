@@ -17,5 +17,3 @@ public class ArchivoServiceImpl extends CRUDImpl<Archivo, Integer> implements IA
 	@Override
 	protected IGenericRepo<Archivo, Integer> getRepo(){	return repo;}
 }
-
-
