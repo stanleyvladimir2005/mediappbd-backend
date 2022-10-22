@@ -2,11 +2,9 @@ package com.mitocode.repo;
 
 import java.time.LocalDateTime;
 import java.util.List;
-
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-
 import com.mitocode.model.Consulta;
 
 @Repository
@@ -20,8 +18,4 @@ public interface IConsultaRepo extends IGenericRepo <Consulta, Integer> {
 
  @Query(value = "select * from fn_listarResumen()", nativeQuery = true)
  List<Object[]> listarResumen();
-	
-//cantidad		fecha
-//[4		,	11/05/2019]
-//[1		, 	18/05/2019]
 }

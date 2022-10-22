@@ -1,7 +1,6 @@
 package com.mitocode.service;
 
 import java.util.List;
-
 import com.mitocode.model.ConsultaExamen;
 import org.springframework.data.repository.query.Param;
 

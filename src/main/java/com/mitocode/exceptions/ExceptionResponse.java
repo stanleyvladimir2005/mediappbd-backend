@@ -1,7 +1,6 @@
 package com.mitocode.exceptions;
 
 import java.util.Date;
-
 import lombok.Data;
 
 @Data

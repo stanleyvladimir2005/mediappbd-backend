@@ -3,7 +3,6 @@ package com.mitocode.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
-
 import lombok.Data;
 
 @Data

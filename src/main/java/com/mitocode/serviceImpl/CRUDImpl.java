@@ -1,10 +1,8 @@
 package com.mitocode.serviceImpl;
 
 import java.util.List;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-
 import com.mitocode.repo.IGenericRepo;
 import com.mitocode.service.ICRUD;
 

@@ -1,7 +1,6 @@
 package com.mitocode.utils;
 
 import lombok.Data;
-
 import java.util.Map;
 
 @Data

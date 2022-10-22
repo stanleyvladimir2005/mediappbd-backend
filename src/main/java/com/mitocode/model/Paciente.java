@@ -8,10 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
-
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
-
 import lombok.Data;
 
 @Data

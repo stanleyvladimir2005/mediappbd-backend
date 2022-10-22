@@ -4,7 +4,6 @@ import com.mitocode.model.Menu;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 @Repository
 public interface IMenuRepo extends IGenericRepo<Menu, Integer>{

@@ -152,12 +152,10 @@ public class ConsultaController {
 	
 	@PostMapping(value = "/guardarArchivo", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
 	public ResponseEntity<Void> guardarArchivo(@RequestParam("file") MultipartFile file) throws IOException{
-
 		Archivo ar = new Archivo();
 		ar.setFiletype(file.getContentType());
 		ar.setFilename(file.getName());
 		ar.setValue(file.getBytes());
-
 		serviceArchivo.registrar(ar);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}

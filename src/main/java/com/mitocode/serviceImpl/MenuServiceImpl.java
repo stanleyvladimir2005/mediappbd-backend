@@ -6,7 +6,6 @@ import com.mitocode.repo.IMenuRepo;
 import com.mitocode.service.IMenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +29,6 @@ public class MenuServiceImpl extends CRUDImpl<Menu, Integer> implements IMenuSer
             m.setIcon(String.valueOf(x[1]));
             m.setName(String.valueOf(x[2]));
             m.setUrl(String.valueOf(x[3]));
-
             menus.add(m);
         });
         return menus;

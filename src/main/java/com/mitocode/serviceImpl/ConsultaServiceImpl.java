@@ -4,13 +4,10 @@ import java.io.File;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
-
 import com.mitocode.dto.ConsultaListaExamenDTO;
 import com.mitocode.dto.ConsultaResumenDTO;
 import com.mitocode.dto.FiltroConsultaDTO;
@@ -19,7 +16,6 @@ import com.mitocode.repo.IConsultaExamenRepo;
 import com.mitocode.repo.IConsultaRepo;
 import com.mitocode.repo.IGenericRepo;
 import com.mitocode.service.IConsultaService;
-
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -66,10 +62,6 @@ public class ConsultaServiceImpl extends CRUDImpl<Consulta,Integer>  implements 
 	@Override
 	public List<ConsultaResumenDTO> listarResumen() {
 		List<ConsultaResumenDTO> consultas = new ArrayList<>();
-		// List<Object[]>
-		// cantidad fecha
-		// [4 , 11/05/2019]
-		// [1 , 18/05/2019]
 		repo.listarResumen().forEach( x -> {
 			ConsultaResumenDTO cr = new ConsultaResumenDTO();
 			cr.setCantidad(Integer.parseInt(String.valueOf(x[0])));
@@ -82,10 +74,6 @@ public class ConsultaServiceImpl extends CRUDImpl<Consulta,Integer>  implements 
 	@Override
 	public byte[] generarReporte()  throws  Exception{
 		byte[] data = null;
-		
-		//HashMap<String, String> params = new HashMap<String, String>();
-		//params.put("txt_empresa", "MitoCode Network");
-		
 		try {
 			File file = new ClassPathResource("/reports/consultas.jasper").getFile();
 			JasperPrint print = JasperFillManager.fillReport(file.getPath(), null, new JRBeanCollectionDataSource(this.listarResumen()));

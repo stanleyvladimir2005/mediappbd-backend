@@ -2,7 +2,6 @@ package com.mitocode.serviceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.mitocode.model.Medico;
 import com.mitocode.repo.IGenericRepo;
 import com.mitocode.repo.IMedicoRepo;
