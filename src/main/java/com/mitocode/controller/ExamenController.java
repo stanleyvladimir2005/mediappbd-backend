@@ -42,11 +42,7 @@ public class ExamenController {
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> registrar(@Valid @RequestBody Examen Examen) {
 		Examen pac = service.registrar(Examen);
-		URI location = ServletUriComponentsBuilder
-				       .fromCurrentRequest()
-				       .path("/{id}")
-					   .buildAndExpand(pac.getIdExamen())
-				       .toUri();
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(pac.getIdExamen()).toUri();
 		return ResponseEntity.created(location).build();
 	}
 
@@ -72,9 +68,7 @@ public class ExamenController {
 			throw new ModelNotFoundException("ID: " + id);	
 		
 		EntityModel<Examen> entityModel = EntityModel.of(examen);
-		Link link= WebMvcLinkBuilder
-				   .linkTo(methodOn(this.getClass()).listar())
-				   .withRel("all-users");
+		Link link= WebMvcLinkBuilder.linkTo(methodOn(this.getClass()).listar()).withRel("all-users");
 		entityModel.add(link);
 		return entityModel;
 	}

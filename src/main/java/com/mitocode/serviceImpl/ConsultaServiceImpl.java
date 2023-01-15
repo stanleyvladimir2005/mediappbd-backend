@@ -39,7 +39,7 @@ public class ConsultaServiceImpl extends CRUDImpl<Consulta,Integer>  implements 
 	@Transactional
 	public Consulta registrarTransaccional(ConsultaListaExamenDTO consultaDTO) {
 		//Se inserta la consulta con su detalle consulta
-		Consulta cons = new Consulta();
+		Consulta cons;
 		consultaDTO.getConsulta().getDetalleConsulta().forEach(x -> x.setConsulta(consultaDTO.getConsulta()));
 		cons = repo.save(consultaDTO.getConsulta());
 
@@ -72,7 +72,7 @@ public class ConsultaServiceImpl extends CRUDImpl<Consulta,Integer>  implements 
 	}
 
 	@Override
-	public byte[] generarReporte()  throws  Exception{
+	public byte[] generarReporte() {
 		byte[] data = null;
 		try {
 			File file = new ClassPathResource("/reports/consultas.jasper").getFile();
@@ -82,5 +82,5 @@ public class ConsultaServiceImpl extends CRUDImpl<Consulta,Integer>  implements 
 			e.printStackTrace();
 		}
 		return data;
-	};
+	}
 }

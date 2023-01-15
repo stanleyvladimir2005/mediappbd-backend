@@ -42,11 +42,7 @@ public class EspecialidadController {
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> registrar(@Valid @RequestBody Especialidad Especialidad) {
 		Especialidad esp = service.registrar(Especialidad);
-		URI location = ServletUriComponentsBuilder
-				         .fromCurrentRequest()
-				         .path("/{id}")
-					     .buildAndExpand(esp.getIdEspecialidad())
-				         .toUri();
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(esp.getIdEspecialidad()).toUri();
 		return ResponseEntity.created(location).build();
 	}
 
@@ -72,9 +68,7 @@ public class EspecialidadController {
 			throw new ModelNotFoundException("ID: " + id);	
 		
 		EntityModel<Especialidad> entityModel = EntityModel.of(Especialidad);
-		Link link= WebMvcLinkBuilder
-				    .linkTo(methodOn(this.getClass()).listar())
-				    .withRel("all-users");
+		Link link= WebMvcLinkBuilder.linkTo(methodOn(this.getClass()).listar()).withRel("all-users");
 		entityModel.add(link);
 		return entityModel;
 	}

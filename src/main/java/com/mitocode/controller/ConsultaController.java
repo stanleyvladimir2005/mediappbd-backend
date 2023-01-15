@@ -56,11 +56,7 @@ public class ConsultaController {
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> registrar(@Valid @RequestBody ConsultaListaExamenDTO Consulta) {
 		Consulta obj = service.registrarTransaccional(Consulta);
-		URI location = ServletUriComponentsBuilder
-				          .fromCurrentRequest()
-				          .path("/{id}")
-					      .buildAndExpand(obj.getIdConsulta())
-				          .toUri();
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getIdConsulta()).toUri();
 		return ResponseEntity.created(location).build();			
 	}
 
