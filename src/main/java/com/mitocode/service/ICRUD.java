@@ -6,16 +6,16 @@ import org.springframework.data.domain.Pageable;
 
 public interface ICRUD<T, ID> {
 
-	T registrar(T t);
+	T save(T t);
 
-	T modificar(T t);
+	T update(T t, ID id);
 
 	//@PreAuthorize("@restAuthServiceImpl.hasAccess('listar')")
-	List<T> listar();
+	List<T> findAll();
 	
-	T listarPorId(ID id);
+	T findById(ID id);
 
-	void eliminar(ID id);
+	void delete(ID id);
 	
-	Page<T> listarPageable(Pageable pageable);
+	Page<T> listPageable(Pageable pageable);
 }

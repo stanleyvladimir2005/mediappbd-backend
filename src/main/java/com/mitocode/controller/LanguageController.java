@@ -28,12 +28,11 @@ public class LanguageController {
     @GetMapping("/locale/{loc}")
     public ResponseEntity<Void> changeLocale(@PathVariable("loc") String loc) {
         Locale userLocale;
-        if (loc.equals("en")) {
+        if (loc.equals("en"))
             userLocale = Locale.ENGLISH;
-        } else {
+        else
             userLocale = Locale.ROOT;
-        }
-
+        
         localeResolver.setLocale(httpServletRequest, httpServletResponse, userLocale);
         return new ResponseEntity<>(HttpStatus.OK);
     }

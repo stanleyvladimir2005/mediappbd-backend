@@ -5,5 +5,5 @@ import java.util.List;
 
 public interface IMenuService extends ICRUD<Menu, Integer>{
 
-    List<Menu> listarMenuPorUsuario(String user_name);
+    List<Menu> getMenusByUserName(String userName);
 }

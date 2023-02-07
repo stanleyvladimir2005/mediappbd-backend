@@ -1,6 +1,8 @@
 package com.mitocode.serviceImpl;
 
 import java.util.List;
+
+import com.mitocode.exceptions.ModelNotFoundException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import com.mitocode.repo.IGenericRepo;
@@ -10,25 +12,29 @@ public abstract class CRUDImpl<T,ID> implements ICRUD<T, ID> {
 	
 	protected abstract IGenericRepo<T, ID> getRepo();
 
-	public T registrar(T t){
+	public T save(T t){
 		return getRepo().save(t);		
 	}
 
-	public T modificar(T t){
+	public T update(T t, ID id){
+		getRepo().findById(id).orElseThrow(() -> new ModelNotFoundException("ID NOT FOUND: "+id));
 		return getRepo().save(t);
 	}
 	
-	public List<T> listar(){
+	public List<T> findAll(){
 		return getRepo().findAll();
 	}
 
-	public T listarPorId(ID id) {
-		return getRepo().findById(id).orElse(null);
+	public T findById(ID id) {
+		return getRepo().findById(id).orElseThrow(() -> new ModelNotFoundException("ID NOT FOUND: "+id));
 	}
 	
-	public void eliminar(ID id) { getRepo().deleteById(id);	}
+	public void delete(ID id) {
+		getRepo().findById(id).orElseThrow(() -> new ModelNotFoundException("ID NOT FOUND: "+id));
+		getRepo().deleteById(id);
+	}
 	
-	public Page<T> listarPageable(Pageable pageable){
+	public Page<T> listPageable(Pageable pageable){
 		return getRepo().findAll(pageable);
 	}
 }
