@@ -22,7 +22,7 @@ public class Specialty {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idSpelcialty;
 	
-	@Column(name = "nombre", nullable = false, length = 50)
+	@Column(name = "spelcialtyName", nullable = false, length = 50)
 	@Size(min=3, message ="{especialidad_name.size}")
 	private String spelcialtyName;
 	
