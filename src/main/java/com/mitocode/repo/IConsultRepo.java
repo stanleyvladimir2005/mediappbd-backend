@@ -2,7 +2,6 @@ package com.mitocode.repo;
 
 import java.time.LocalDateTime;
 import java.util.List;
-
 import com.mitocode.model.Consult;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
