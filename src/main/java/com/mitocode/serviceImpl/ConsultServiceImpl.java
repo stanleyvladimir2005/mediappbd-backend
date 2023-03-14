@@ -72,7 +72,7 @@ public class ConsultServiceImpl extends CRUDImpl<Consult,Integer>  implements IC
 	public byte[] generateReport() {
 		byte[] data = null;
 		try {
-			File file = new ClassPathResource("/reports/consultas.jasper").getFile();
+			File file = new ClassPathResource("/reports/consults.jasper").getFile();
 			JasperPrint print = JasperFillManager.fillReport(file.getPath(), null, new JRBeanCollectionDataSource(this.callProcedureOrFunction()));
 			data = JasperExportManager.exportReportToPdf(print);
 		}catch(Exception e) {

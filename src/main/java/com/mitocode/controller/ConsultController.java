@@ -84,14 +84,14 @@ public class ConsultController {
 	}
 	
 	@GetMapping(value = "/hateoas", produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<ConsultDTO> listarHateoas() {
+	public List<ConsultDTO> listHateoas() {
 		List<Consult> consults;
 		List<ConsultDTO> consultDTO = new ArrayList<>();
 		consults = service.findAll();
 
 		for (Consult c : consults) {
 			ConsultDTO d = new ConsultDTO();
-			d.setIdConsulta(c.getIdConsult());
+			d.setIdConsult(c.getIdConsult());
 			d.setMedic(c.getMedic());
 			d.setPatient(c.getPatient());
 

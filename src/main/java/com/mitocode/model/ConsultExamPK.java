@@ -1,13 +1,11 @@
 package com.mitocode.model;
 
 import lombok.EqualsAndHashCode;
-
 import java.io.Serial;
 import java.io.Serializable;
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
 
 @EqualsAndHashCode
 @Embeddable

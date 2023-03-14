@@ -15,7 +15,7 @@ public class AuthServiceImpl {
             case "findById" -> "USER,DBA";
             default -> "";
         };
-        String methodRoles[] = methodRole.split(",");
+        String[] methodRoles = methodRole.split(",");
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         for (GrantedAuthority gra : auth.getAuthorities()) {
             String rolUser = gra.getAuthority();

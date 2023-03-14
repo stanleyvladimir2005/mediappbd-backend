@@ -19,7 +19,7 @@ public class ConsultExamController {
 	private IConsultExamService service;
 	
 	@GetMapping(value = "/{idConsult}")
-	public ResponseEntity<List<ConsultExam>> listar(@PathVariable("idConsult") Integer idConsult) {
+	public ResponseEntity<List<ConsultExam>> list(@PathVariable("idConsult") Integer idConsult) {
 		List<ConsultExam> consultExam = service.getExamsByConsult(idConsult);
 		return new ResponseEntity<>(consultExam, HttpStatus.OK);
 	}
