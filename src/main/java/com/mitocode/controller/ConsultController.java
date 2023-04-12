@@ -52,8 +52,8 @@ public class ConsultController {
 	}
 		
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Object> save(@Valid @RequestBody ConsultListExamDTO Consulta) {
-		Consult obj = service.saveTransactional(Consulta);
+	public ResponseEntity<Object> save(@Valid @RequestBody ConsultListExamDTO consult) {
+		Consult obj = service.saveTransactional(consult);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getIdConsult()).toUri();
 		return ResponseEntity.created(location).build();			
 	}
