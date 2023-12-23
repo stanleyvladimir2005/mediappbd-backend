@@ -89,22 +89,19 @@ public class ConsultController {
 		List<ConsultDTO> consultDTO = new ArrayList<>();
 		consults = service.findAll();
 
-		for (Consult c : consults) {
-			ConsultDTO d = new ConsultDTO();
-			d.setIdConsult(c.getIdConsult());
-			d.setMedic(c.getMedic());
-			d.setPatient(c.getPatient());
-
-			WebMvcLinkBuilder linkTo = linkTo(methodOn(ConsultController.class).findById((c.getIdConsult())));
-			d.add(linkTo.withSelfRel());
-
-			WebMvcLinkBuilder linkTo1 = linkTo(methodOn(PatientController.class).findById((c.getPatient().getIdPatient())));
-			d.add(linkTo1.withSelfRel());
-
-			WebMvcLinkBuilder linkTo2 = linkTo(methodOn(MedicController.class).findById((c.getMedic().getIdMedic())));
-			d.add(linkTo2.withSelfRel());
-			consultDTO.add(d);
-		}
+        consults.forEach(c -> {
+            ConsultDTO d = new ConsultDTO();
+            d.setIdConsult(c.getIdConsult());
+            d.setMedic(c.getMedic());
+            d.setPatient(c.getPatient());
+            WebMvcLinkBuilder linkTo = linkTo(methodOn(ConsultController.class).findById((c.getIdConsult())));
+            d.add(linkTo.withSelfRel());
+            WebMvcLinkBuilder linkTo1 = linkTo(methodOn(PatientController.class).findById((c.getPatient().getIdPatient())));
+            d.add(linkTo1.withSelfRel());
+            WebMvcLinkBuilder linkTo2 = linkTo(methodOn(MedicController.class).findById((c.getMedic().getIdMedic())));
+            d.add(linkTo2.withSelfRel());
+            consultDTO.add(d);
+        });
 		return consultDTO;
 	}
 
